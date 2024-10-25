@@ -9,18 +9,18 @@ const cors = require('cors');
 const dotenv = require("dotenv");
 dotenv.config();
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.use(cookieParser());
 app.use('/files', express.static(path.join(__dirname, 'files')));
-app.use(cors(
-	{
-		origin: ["https://collegmate-backend-gvh7.onrender.com/api/v1","*"],
-		credentials: true,
-	}
-))
-
+// app.use(cors(
+// 	{
+// 		origin: ["https://collegmate-backend-gvh7.onrender.com/api/v1","*"],
+// 		credentials: true,
+// 	}
+// ))
+app.use(cors());
 database.connect();
 cloudinary.cloudinaryConnect();
 
